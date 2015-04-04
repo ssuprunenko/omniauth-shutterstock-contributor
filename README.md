@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Register your application with Shutterstock to receive Client ID and Client Secret: https://developers.shutterstock.com/applicationsdeveloper
+Register your application with Shutterstock to receive Client ID and Client Secret: https://developers.shutterstock.com/applications
 
 This is an example that you might put into a Rails initializer at `config/initializers/omniauth.rb`:
 
