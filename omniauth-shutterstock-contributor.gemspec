@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Sergey Suprunenko']
   spec.email         = ['suprunenko.s@gmail.com']
 
-  spec.summary       = %q{A Shutterstock-Contributor OAuth2 strategy for OmniAuth.}
-  spec.description   = %q{A Shutterstock-Contributor OAuth2 strategy for OmniAuth.}
+  spec.summary       = %q{Shutterstock-Contributor OAuth2 strategy for OmniAuth.}
+  spec.description   = %q{Shutterstock-Contributor OAuth2 strategy for OmniAuth.}
   spec.homepage      = 'https://github.com/ssuprunenko/omniauth-shutterstock-contributor'
   spec.license       = 'MIT'
 

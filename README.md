@@ -1,5 +1,7 @@
 # Omniauth::Shutterstock::Contributor
 
+[![Gem Version](https://badge.fury.io/rb/omniauth-shutterstock-contributor.svg)](http://badge.fury.io/rb/omniauth-shutterstock-contributor)
+
 Shutterstock Contributor OAuth2 Strategy for OmniAuth.
 
 Supports the OAuth 2.0 server-side and client-side flows. Read the Shutterstock API docs for more details: https://developers.shutterstock.com/guides/authentication
