@@ -1,8 +1,8 @@
 # Omniauth::Shutterstock::Contributor
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/shutterstock/contributor`. To experiment with that code, run `bin/console` for an interactive prompt.
+Shutterstock Contributor OAuth2 Strategy for OmniAuth.
 
-TODO: Delete this and the text above, and describe your gem
+Supports the OAuth 2.0 server-side and client-side flows. Read the Shutterstock API docs for more details: https://developers.shutterstock.com/guides/authentication
 
 ## Installation
 
@@ -22,17 +22,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Register your application with Shutterstock to receive Client ID and Client Secret: https://developers.shutterstock.com/applicationsdeveloper
 
-## Development
+This is an example that you might put into a Rails initializer at `config/initializers/omniauth.rb`:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :shutterstock_contributor, ENV['SHUTTERSTOCK_CLIENT_ID'], ENV['SHUTTERSTOCK_CLIENT_SECRET']
+end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+OR you might put following code to `config/initializers/devise.rb`:
+
+```ruby
+config.omniauth :shutterstock_contributor, ENV['SHUTTERSTOCK_CLIENT_ID'], ENV['SHUTTERSTOCK_CLIENT_SECRET']
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/omniauth-shutterstock-contributor/fork )
+1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
