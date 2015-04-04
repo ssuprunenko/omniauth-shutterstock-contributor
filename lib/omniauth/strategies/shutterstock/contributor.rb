@@ -9,12 +9,12 @@ module OmniAuth
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
       option :client_options, {
-        site: 'https://developers.shutterstock.com/',
+        site: 'https://api.shutterstock.com/v2',
         authorize_url: 'https://contributor-accounts.shutterstock.com/oauth/authorize',
         token_url: 'https://contributor-accounts.shutterstock.com/oauth/access_token'
       }
 
-      option :scope, 'user.view user.edit collections.view collections.edit licenses.view licenses.create earnings.view purchases.view reseller.view reseller.purchase'
+      option :scope, 'user.view user.email user.edit collections.view collections.edit licenses.view licenses.create earnings.view purchases.view'
 
       option :fields, ['id', 'username', 'full_name', 'email', 'customer_id']
 
@@ -23,14 +23,14 @@ module OmniAuth
       # additional calls (if the user id is returned with the token
       # or as a URI parameter). This may not be possible with all
       # providers.
-      uid { raw_info['id'].to_s }
+      uid { raw_info[:id].to_s }
 
       info do
         {
-          name: raw_info['full_name'],
-          email: raw_info['email'],
-          nickname: raw_info['username'],
-          customer_id: raw_info['customer_id']
+          name: raw_info[:full_name],
+          email: raw_info[:email],
+          nickname: raw_info[:username],
+          customer_id: raw_info[:customer_id]
         }
       end
 
@@ -39,8 +39,7 @@ module OmniAuth
       end
 
       def raw_info
-        access_token.options[:mode] = :query
-        @raw_info ||= access_token.get('user').parsed
+        @raw_info ||= deep_symbolize(access_token.get('user').parsed)
       end
     end
   end
