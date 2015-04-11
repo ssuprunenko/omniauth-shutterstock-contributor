@@ -16,7 +16,7 @@ module OmniAuth
 
       option :scope, 'user.view user.email user.edit collections.view collections.edit licenses.view licenses.create earnings.view purchases.view'
 
-      option :fields, ['id', 'username', 'full_name', 'email', 'customer_id']
+      option :fields, ['id', 'username', 'full_name', 'email', 'contributor_id']
 
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making
@@ -30,7 +30,7 @@ module OmniAuth
           name: raw_info[:full_name],
           email: raw_info[:email],
           nickname: raw_info[:username],
-          customer_id: raw_info[:customer_id]
+          contributor_id: raw_info[:contributor_id]
         }
       end
 
